@@ -7,6 +7,13 @@ namespace Mission09_jrsarge.Models
 {
     public class EFBookstoreRepository : IBookstoreRepository
     {
-        public IQueryable<Book> Books { get; }
+        private BookstoreContext context { get; set; }
+
+        public EFBookstoreRepository (BookstoreContext temp)
+        {
+            context = temp;
+        }
+
+        public IQueryable<Book> Books => context.Books;
     }
 }
