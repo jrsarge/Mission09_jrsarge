@@ -19,11 +19,11 @@ namespace Mission09_jrsarge.Controllers
 
         public IActionResult Index(int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 10;
 
             var blah = repo.Books
                 .OrderBy(b => b.Title)
-                .Skip(pageNum*pageSize)
+                .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize);
 
             return View(blah);
