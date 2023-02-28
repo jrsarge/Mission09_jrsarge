@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Mission09_jrsarge.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +27,22 @@ namespace Mission09_jrsarge.Infrastructure
         [HtmlAttributeNotBound]
         public ViewContext vc { get; set; }
 
+        //Different than the View Context
+        public PageInfo PageBlah { get; set; }
+
         public override void Process(TagHelperContext thc, TagHelperOutput tho)
         {
             IUrlHelper uh = uhf.GetUrlHelper(vc);
 
             TagBuilder final = new TagBuilder("div");
+
+            for (int i = 1; i < PageBlah.TotalPages; i++)
+            {
+                TagBuilder tb = new TagBuilder("a");
+
+                tb.Attributes["href"] = 
+
+            }
 
 
         }
