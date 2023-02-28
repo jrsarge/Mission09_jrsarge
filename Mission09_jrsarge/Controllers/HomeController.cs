@@ -36,14 +36,9 @@ namespace Mission09_jrsarge.Controllers
                     CurrentPage = pageNum
                 }
 
-            }
+            };
 
-            var blah = repo.Books
-                .OrderBy(b => b.Title)
-                .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize);
-
-            return View(blah);
+            return View(x);
         }
     }
 }
