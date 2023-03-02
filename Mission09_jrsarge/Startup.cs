@@ -51,8 +51,14 @@ namespace Mission09_jrsarge
 
             app.UseRouting();
 
+            //Endpoints are ran in order, this removes our slug in the URL
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" });
+
                 endpoints.MapDefaultControllerRoute();
             });
         }
