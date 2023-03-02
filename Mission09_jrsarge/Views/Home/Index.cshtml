@@ -13,17 +13,18 @@
         <div class="bg-faded p-1">
             <h4>
                 @b.Title
-                <span class="badge badge-pill badge-primary" style="float:right">
+
+                <badge style="float:right">
                     <small>@b.Price.ToString("c")</small>
-                </span>
+                </badge>
             </h4>
         </div>
-        <div class="card-text p-1">@b.Author</div>
-        <div class="card-text p-1">@b.Publisher</div>
-        <div class="card-text p-1">@b.Category</div>
-        <div class="card-text p-1">@b.Classification</div>
-        <div class="card-text p-1">@b.PageCount</div>
-        <div class="card-text p-1">@b.Isbn</div>
+        <div class="card-text p-1">Author: @b.Author</div>
+        <div class="card-text p-1">Publisher: @b.Publisher</div>
+        <div class="card-text p-1">Category: @b.Category</div>
+        <div class="card-text p-1">Classifiaction: @b.Classification</div>
+        <div class="card-text p-1">Page Count: @b.PageCount</div>
+        <div class="card-text p-1">IBSN: @b.Isbn</div>
     </div>
 
     <br/>
