@@ -25,7 +25,7 @@ namespace Mission09_jrsarge.Controllers
             var x = new BooksViewModel
             {
                 Books = repo.Books
-                .Where(b => b.Category == category)
+                .Where(b => b.Category == category || category == null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
