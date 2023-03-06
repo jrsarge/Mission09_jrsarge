@@ -18,6 +18,8 @@ namespace Mission09_jrsarge.Components
 
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedCategory = RouteData?.Values["category"];
+
             var categories = repo.Books
                 .Select(x => x.Category)
                 .Distinct()
