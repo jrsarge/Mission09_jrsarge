@@ -12,5 +12,10 @@ namespace Mission09_jrsarge.Pages
         public void OnGet()
         {
         }
+
+        public void OnPost()
+        {
+
+        }
     }
 }
