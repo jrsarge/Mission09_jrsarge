@@ -18,8 +18,9 @@ namespace Mission09_jrsarge.Pages
         }
 
         public basket basket { get; set; }
-        public void OnGet()
+        public void OnGet(basket b)
         {
+            basket = b;
         }
 
         public IActionResult OnPost(int bookID)
@@ -29,7 +30,7 @@ namespace Mission09_jrsarge.Pages
             basket = new basket();
             basket.AddItem(b, 1);
 
-            return RedirectToPage();
+            return RedirectToPage(basket);
         }
     }
 }
