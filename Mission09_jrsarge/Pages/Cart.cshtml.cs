@@ -19,12 +19,14 @@ namespace Mission09_jrsarge.Pages
         }
 
         public basket basket { get; set; }
-        public void OnGet()
+        public string ReturnUrl { get; set; }
+        public void OnGet(string returnUrl)
         {
+            ReturnUrl = returnUrl ?? "/";
             basket = HttpContext.Session.GetJson<basket>("basket") ?? new basket();
         }
 
-        public IActionResult OnPost(int bookID)
+        public IActionResult OnPost(int bookID, string returnUrl)
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookId == bookID);
 
@@ -33,7 +35,7 @@ namespace Mission09_jrsarge.Pages
 
             HttpContext.Session.SetJson("basket", basket);
 
-            return RedirectToPage(basket);
+            return RedirectToPage(new { ReturnUrl = returnUrl });
         }
     }
 }
