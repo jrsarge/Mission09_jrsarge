@@ -43,6 +43,7 @@ namespace Mission09_jrsarge
             services.AddSession();
 
             services.AddScoped<basket>(x => SessionCart.GetCart(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

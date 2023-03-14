@@ -23,17 +23,13 @@ namespace Mission09_jrsarge.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            basket = HttpContext.Session.GetJson<basket>("basket") ?? new basket();
         }
 
         public IActionResult OnPost(int bookID, string returnUrl)
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookId == bookID);
 
-            basket = HttpContext.Session.GetJson<basket>("basket") ?? new basket();
             basket.AddItem(b, 1);
-
-            HttpContext.Session.SetJson("basket", basket);
 
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }
