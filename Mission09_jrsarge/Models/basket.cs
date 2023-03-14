@@ -10,7 +10,7 @@ namespace Mission09_jrsarge.Models
         //first part declares second part instantiates
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem(Book bookie, int qty)
+        public virtual void AddItem(Book bookie, int qty)
         {
             BasketLineItem line = Items
                 .Where(c => c.Book.BookId == bookie.BookId)
@@ -31,6 +31,16 @@ namespace Mission09_jrsarge.Models
             }
         }
 
+        public virtual void RemoveItem(Book bookie)
+        {
+            Items.RemoveAll(x => x.Book.BookId == bookie.BookId);
+        }
+
+        public virtual void ClearCart()
+        {
+            Items.Clear();
+        }
+
         public double CalculateTotal()
         {
             double sum = Items.Sum(x => x.Quantity * x.Book.Price);
@@ -38,6 +48,8 @@ namespace Mission09_jrsarge.Models
             return sum;
         }
     }
+
+    
 
     public class BasketLineItem
     {
