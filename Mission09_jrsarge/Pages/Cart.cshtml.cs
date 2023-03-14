@@ -33,5 +33,10 @@ namespace Mission09_jrsarge.Pages
 
             return RedirectToPage(new { ReturnUrl = returnUrl });
         }
+
+        public IActionResult OnPostRemove()
+        {
+
+        }
     }
 }
