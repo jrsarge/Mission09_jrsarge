@@ -41,6 +41,8 @@ namespace Mission09_jrsarge
 
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            services.AddScoped<basket>(x => SessionCart.GetCart(x));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
