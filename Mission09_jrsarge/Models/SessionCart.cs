@@ -16,6 +16,8 @@ namespace Mission09_jrsarge.Models
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
             SessionCart cart = session?.GetJson<SessionCart>("basket") ?? new SessionCart();
 
+            cart.Session = session;
+
             return cart;
         }
 
