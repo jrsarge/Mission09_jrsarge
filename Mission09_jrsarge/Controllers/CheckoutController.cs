@@ -38,7 +38,7 @@ namespace Mission09_jrsarge.Controllers
                 repo.SaveCheckout(checkout);
                 basket.ClearCart();
 
-                return RedirectToPage("/CheckoutComplete");
+                return RedirectToPage("/CheckoutCompleted");
             }
             else
             {
