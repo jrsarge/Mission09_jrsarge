@@ -36,6 +36,7 @@ namespace Mission09_jrsarge
            });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>(); 
 
             services.AddRazorPages();
 

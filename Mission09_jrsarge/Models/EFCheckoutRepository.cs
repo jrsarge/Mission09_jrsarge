@@ -16,11 +16,18 @@ namespace Mission09_jrsarge.Models
         }
 
 
-        public IQueryable<Checkout> Checkout => context.Checkout.Include(x => x.Items);
+        public IQueryable<Checkout> Checkout => context.Checkout.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SaveCheckout(Checkout checkout)
         {
-            throw new NotImplementedException();
+            context.AttachRange(checkout.Lines.Select(x => x.Book));
+
+            if(checkout.DonationId == 0)
+            {
+                context.Checkout.Add(checkout);
+            }
+
+            context.SaveChanges();
         }
     }
 }
