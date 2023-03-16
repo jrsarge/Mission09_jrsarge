@@ -9,9 +9,21 @@ namespace Mission09_jrsarge.Controllers
 {
     public class CheckoutController : Controller
     {
+        public CheckoutController()
+        {
+
+        }
+
+        [HttpGet]
         public IActionResult RingOut()
         {
             return View(new Checkout());
+        }
+
+        [HttpPost]
+        public IActionResult RingOut(Checkout checkout)
+        {
+
         }
     }
 }
